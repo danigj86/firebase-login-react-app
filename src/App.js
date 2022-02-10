@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import { Dashboard } from './components/dashboard';
-import { Auth } from './components/auth';
+import { Dashboard } from './components/Dashboard';
+import { Auth } from './components/Auth';
 
 function App() {
 
