@@ -10,7 +10,7 @@ export const Auth = () => {
 
         {index ? <SignIn /> : <SignUp />}
         <p onClick={() => setIndex(!index)}>
-            {!index ? 'New user? Click here' : 'Already have an account?'}
+            {index ? 'New user? Click here' : 'Already have an account?'}
         </p>
 
     </div>;

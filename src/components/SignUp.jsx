@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useUserContext } from '../context/userContext';
 
 export const SignUp = () => {
 
@@ -6,12 +7,15 @@ export const SignUp = () => {
         const nameRef = useRef();
         const passwordRef = useRef();
     
-      
+      const { registerUser } = useUserContext()
+
         const onSubmit = (e) => {
           e.preventDefault();
           const email = emailRef.current.value;
           const name = nameRef.current.value;
           const password = passwordRef.current.value;
+
+          if (email && name && password) registerUser(email, password, name);
          
         };
 
