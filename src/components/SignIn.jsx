@@ -14,7 +14,11 @@ export const SignIn = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        if (email && password) signInUser(email, password);
+        if (email && password){
+            signInUser(email, password)
+        }else{
+            alert('Introduce tus datos')
+        }
 
     }
 
@@ -34,8 +38,8 @@ export const SignIn = () => {
       <form onSubmit={onSubmit}>
           <input type="email" placeholder="Email" ref={emailRef}/>
           <input type="password" placeholder="Password" ref={passwordRef}/>
-          <button type="submit">Sign in</button>
           <p onClick={forgotPasswordHandler}> Forgot your password? </p>
+          <button type="submit">Sign in</button>
       </form>
   </div>;
 };

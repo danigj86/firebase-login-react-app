@@ -1,13 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import {
-    createUserWithEmailAndPassword,
-    updateProfile,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signOut,
-    sendPasswordResetEmail
+  createUserWithEmailAndPassword,
+  updateProfile,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+  sendPasswordResetEmail,
+  signInWithPopup
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, provider } from "../firebase";
 
 
 export const UserContext = createContext({});
@@ -56,6 +57,11 @@ export const UserContextProvider = ({ children }) => {
       .finally(() => setLoading(false));
   };
 
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((res) => console.log(res))
+  }
+
   const logoutUser = () => {
     signOut(auth);
   };
@@ -72,6 +78,7 @@ export const UserContextProvider = ({ children }) => {
     registerUser,
     logoutUser,
     forgotPassword,
+    signInWithGoogle
   };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
